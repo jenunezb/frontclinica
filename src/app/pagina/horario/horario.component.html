@@ -1,0 +1,19 @@
+<div class="calendario">
+    <div class="mes">
+        <button (click)="mesAnterior()">Anterior</button>
+        <span>{{ nombresMeses[mesMostrado] }} 2023</span>
+        <button (click)="mesSiguiente()">Siguiente</button>
+    </div>
+    <div class="dias-semana">
+        <div class ="dia-semana">Dom</div>
+        <div class="dia-semana">Lun</div>
+        <div class="dia-semana">Mar</div>
+        <div class="dia-semana">Mié</div>
+        <div class="dia-semana">Jue</div>
+        <div class="dia-semana">Vie</div>
+        <div class="dia-semana">Sáb</div>
+    </div>
+    <div class="dias-mes">
+        <div class="dia-mes" *ngFor="let dia of diasDelMes"  (click)="redirigirAPagina(dia)">{{ dia }}</div>
+    </div>
+</div>
