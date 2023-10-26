@@ -1,0 +1,51 @@
+/* Estilos generales del formulario */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centra horizontalmente el formulario */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra horizontalmente el contenido */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos de etiquetas y campos de entrada */
+label {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    padding: 5px;
+    margin: 1px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos del botón de envío */
+button[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 12px 20px; /* Espaciado interior del botón (alto x ancho) */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición al pasar el cursor sobre el botón */
+    margin-top: 20px; /* Espacio superior entre el botón y el formulario */
+}
+
+/* Cambiar el color del botón cuando se pasa el cursor sobre él */
+button[type="submit"]:hover {
+    background-color: #45a049; /* Nuevo color de fondo */
+}
+
