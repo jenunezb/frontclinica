@@ -38,14 +38,9 @@ button[type="submit"] {
     padding: 12px 20px; /* Espaciado interior del botón (alto x ancho) */
     border: none; /* Sin borde */
     border-radius: 5px; /* Borde redondeado */
-    cursor: pointer;
     font-size: 16px; /* Tamaño de fuente */
     transition: background-color 0.3s; /* Transición al pasar el cursor sobre el botón */
     margin-top: 20px; /* Espacio superior entre el botón y el formulario */
 }
 
-/* Cambiar el color del botón cuando se pasa el cursor sobre él */
-button[type="submit"]:hover {
-    background-color: #45a049; /* Nuevo color de fondo */
-}
 
