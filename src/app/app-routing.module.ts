@@ -4,6 +4,7 @@ import { InicioComponent } from './pagina/inicio/inicio.component';
 import { LoginComponent } from './pagina/login/login.component';
 import { RegistroPacienteComponent } from './pagina/registro-paciente/registro-paciente.component';
 
+
 const routes: Routes = [
 { path: "", component: InicioComponent },
 { path: "login", component: LoginComponent },

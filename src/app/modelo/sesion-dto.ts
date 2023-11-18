@@ -1,4 +1,4 @@
 export class SesionDTO {
     email:string = "";
-password:string = "";
+    password:string = "";
 }
