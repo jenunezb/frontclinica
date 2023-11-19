@@ -16,6 +16,7 @@ import { DetallePqrsComponent } from './pagina/detalle-pqrs/detalle-pqrs.compone
 import { AtencionCitaComponentComponent } from './pagina/atencion-cita-component/atencion-cita-component.component';
 import { CrearMedicoComponentComponent } from './pagina/crear-medico-component/crear-medico-component.component';
 import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
+import { GestionMedicoComponentComponent } from './pagina/gestion-medico-component/gestion-medico-component.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
     CrearPqrsComponent,
     DetallePqrsComponent,
     AtencionCitaComponentComponent,
-    CrearMedicoComponentComponent
+    CrearMedicoComponentComponent,
+    GestionMedicoComponentComponent
 
   ],
   imports: [
