@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+
 export class DetalleMedicoDTO {
     nombre: string="";
     cedula: string="";
@@ -6,4 +8,7 @@ export class DetalleMedicoDTO {
     telefono: string="";
     correo: string="";
     urlFoto: string="";
+    horaInicio: string="";
+    horaFin: string="";
+
 }

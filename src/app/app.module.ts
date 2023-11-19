@@ -18,6 +18,7 @@ import { CrearMedicoComponentComponent } from './pagina/crear-medico-component/c
 import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 import { GestionMedicoComponentComponent } from './pagina/gestion-medico-component/gestion-medico-component.component';
 import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-component/gestion-paciente-component.component';
+import { EditarMedicoComponent } from './pagina/editar-medico/editar-medico.component';
 
 
 
@@ -34,7 +35,8 @@ import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-com
     AtencionCitaComponentComponent,
     CrearMedicoComponentComponent,
     GestionMedicoComponentComponent,
-    GestionPacienteComponentComponent
+    GestionPacienteComponentComponent,
+    EditarMedicoComponent
 
   ],
   imports: [

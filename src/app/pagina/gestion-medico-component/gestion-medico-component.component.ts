@@ -16,6 +16,12 @@ export class GestionMedicoComponentComponent {
   ngOnInit(): void {
     this.listarMedicos();
   }
+  
+  public iraBusqueda(valor: string) {
+    if (valor) {
+      this.router.navigate(['/busqueda', valor]);
+    }
+  }
 
   public listarMedicos(): void {
     this.administradorService.listarMedicos().subscribe(
@@ -30,9 +36,8 @@ export class GestionMedicoComponentComponent {
   }
 
   public editarMedico(medico: ItemMedicoDTO): void {
-    // Implementa lógica para editar el médico (puedes redirigir a una página de edición, por ejemplo)
-    console.log('Editar médico:', medico);
-    this.router.navigate(['/crear-medico']);
+    console.log('Editar médico:', medico.codigo);
+    this.router.navigate(['/editar-medico/'+medico.codigo]);
   }
 
   public eliminarMedico(medico: ItemMedicoDTO): void {
