@@ -10,6 +10,8 @@ import { LoginGuard } from './guards/permiso.service';
 import { RolesGuard }from './guards/roles.service';
 import { AtencionCitaComponentComponent } from './pagina/atencion-cita-component/atencion-cita-component.component';
 import { CrearMedicoComponentComponent } from './pagina/crear-medico-component/crear-medico-component.component';
+import { GestionMedicoComponentComponent } from './pagina/gestion-medico-component/gestion-medico-component.component';
+import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-component/gestion-paciente-component.component';
 
 const routes: Routes = [
 { path: "", component: InicioComponent },
@@ -25,6 +27,8 @@ const routes: Routes = [
 { path: "detalle-pqrs/:codigo", component: DetallePqrsComponent, canActivate: [RolesGuard], data: { expectedRole: ["paciente", "admin"] } },
 { path: "atender-cita", component: AtencionCitaComponentComponent, canActivate: [RolesGuard], data: { expectedRole: ["medico"] } },
 { path: "crear-medico", component: CrearMedicoComponentComponent, canActivate: [RolesGuard], data: { expectedRole: ["admin"] } },
+{ path: "gestion-medico", component: GestionMedicoComponentComponent, canActivate: [RolesGuard], data: { expectedRole: ["admin"] } },
+{ path: "gestion-paciente", component: GestionPacienteComponentComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
 { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 @NgModule({
