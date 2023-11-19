@@ -11,4 +11,5 @@ export class RegistroPacienteDTO {
     correo:string = "";
     password:string = "";
     confirmaPassword: string = "";
+    nombreInputTouched = false;
     }
