@@ -19,23 +19,23 @@ export class LoginComponent implements OnInit{
       this.router.navigate(['/dashboard']); // Reemplaza '/dashboard' con tu ruta deseada
     }
   }
-  
+
   sesionDTO: SesionDTO;
   alerta!: Alerta;
 
   constructor(private authService: AuthService, private router: Router, private tokenService: TokenService){
   this.sesionDTO = new SesionDTO();
   }
-  
+
   public login(){
     this.authService.login(this.sesionDTO).subscribe({
     next: data => {
     this.tokenService.login(data.respuesta.token);
   },
-  
-  error: error => {
-  this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+
+  error: err => {
+      this.alerta = { mensaje: err.error.respuesta, tipo: "danger" };
   }
-  });
+});
   }
 }

@@ -1,6 +1,6 @@
 export class Alerta {
 
-    mensaje: string;
+mensaje: string;
 tipo: string;
 constructor(mensaje: string, tipo: string) {
 this.mensaje = mensaje;
