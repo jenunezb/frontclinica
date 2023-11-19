@@ -3,4 +3,6 @@ export interface ItemPQRSDTO {
     estado: string;
     motivo: string;
     fecha: string;
+    paciente: string;
+    medico: string;
     }
