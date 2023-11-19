@@ -17,6 +17,7 @@ import { AtencionCitaComponentComponent } from './pagina/atencion-cita-component
 import { CrearMedicoComponentComponent } from './pagina/crear-medico-component/crear-medico-component.component';
 import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 import { GestionMedicoComponentComponent } from './pagina/gestion-medico-component/gestion-medico-component.component';
+import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-component/gestion-paciente-component.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GestionMedicoComponentComponent } from './pagina/gestion-medico-compone
     DetallePqrsComponent,
     AtencionCitaComponentComponent,
     CrearMedicoComponentComponent,
-    GestionMedicoComponentComponent
+    GestionMedicoComponentComponent,
+    GestionPacienteComponentComponent
 
   ],
   imports: [

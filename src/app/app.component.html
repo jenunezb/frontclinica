@@ -13,6 +13,7 @@
   <ul *ngIf="roles.includes('paciente')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
     <li><a routerLink="" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión Citas</a></li>
     <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión PQRS</a></li>
+    <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Editar perfil</a></li>
   </ul>
 <div *ngIf="!isLogged; then nologged else logged"></div>
 <ng-template #nologged>
