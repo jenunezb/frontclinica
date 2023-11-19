@@ -21,6 +21,7 @@ constructor(private pacienteService: UsuarioService, private tokenService: Token
     this.pacienteService.listarPQRSPaciente(codigo).subscribe({
       next: data => {
       this.pqrs = data.respuesta;
+      console.log(data);
       },
       error: error => {
         if (error.status === 403) {
