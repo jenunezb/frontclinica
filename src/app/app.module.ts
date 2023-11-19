@@ -20,6 +20,7 @@ import { GestionMedicoComponentComponent } from './pagina/gestion-medico-compone
 import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-component/gestion-paciente-component.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
