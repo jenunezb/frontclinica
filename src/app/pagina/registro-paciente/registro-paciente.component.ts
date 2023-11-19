@@ -103,6 +103,7 @@ public subirImagen() {
   this.imagenService.subir(formData).subscribe({
   next: data => {
   this.registroPacienteDTO.urlFoto = data.respuesta.url;
+  console.log(data.respuesta.url)
   },
   error: error => {
   this.alerta = { mensaje: error.error, tipo: "danger" };
