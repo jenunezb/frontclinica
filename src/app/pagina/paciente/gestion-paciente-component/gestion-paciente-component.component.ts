@@ -38,6 +38,9 @@ export class GestionPacienteComponentComponent {
     this.obtenerPaciente();
   }
 
+  Oninit(){
+  }
+
   private cargarCiudades() {
     this.clinicaService.listarCiudades().subscribe({
       next: data => {
@@ -72,7 +75,19 @@ export class GestionPacienteComponentComponent {
   }
 
   public editar(){
-    this.pacienteService.editarPerfil()
+    this.pacienteService.editarPerfil(this.detallePaciente).subscribe({
+      next: data =>{
+        console.log(this.detallePaciente);
+        this.detallePaciente = data.respuesta;
+        alert(JSON.stringify(data.respuesta));
+    setTimeout(() => {
+      this.router.navigate(['/login']); // Redirige a la página principal
+    }, 1);
+      },
+      error: error => {
+        alert(error.error.respuesta);
+      }
+    })
   }
 
   public obtenerPaciente(){
@@ -80,7 +95,6 @@ export class GestionPacienteComponentComponent {
     this.pacienteService.obtenerPaciente(this.codigoPaciente).subscribe({
       next: data =>{
         this.detallePaciente = data.respuesta;
-        console.log(this.detallePaciente, "yyyyyyyyyyy")
       },
       error: error => {
         alert(error.error.respuesta);
@@ -104,17 +118,4 @@ export class GestionPacienteComponentComponent {
     this.alerta = { mensaje: 'Debe seleccionar una imagen y subirla', tipo: "danger" };
     }
     }
-
-    public sonIguales():boolean{
-      return this.registroPacienteDTO.password == this.registroPacienteDTO.confirmaPassword;
-      }
-
-
-     public onFileChange(event: any) {
-if (event.target.files.length > 0) {
-this.registroPacienteDTO.urlFoto = event.target.files[0].name;
-this.archivos = event.target.files;
-}
-}
-
 }

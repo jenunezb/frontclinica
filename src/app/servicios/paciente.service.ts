@@ -22,8 +22,8 @@ export class UsuarioService {
   public eliminarCuenta(codigo: number): Observable<MensajeDTO> {
   return this.http.delete<MensajeDTO>(`${this.userUrl}/eliminar/${codigo}`);
   }
-  public editarPerfil(): Observable<MensajeDTO> {
-  return this.http.put<MensajeDTO>(`${this.userUrl}/editar-perfil`, this.pacienteDTO);
+  public editarPerfil(detallePaciente: DetallePacienteDTO): Observable<MensajeDTO> {
+  return this.http.put<MensajeDTO>(`${this.userUrl}/editar-perfil`, detallePaciente);
   }
   public crearPQRS(registroPQRSDTO: RegistroPQRSDTO): Observable<MensajeDTO> {
   return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs`, registroPQRSDTO);

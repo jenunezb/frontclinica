@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './pagina/inicio/inicio.component';
-import { LoginComponent } from './pagina/login/login.component';
-import { RegistroPacienteComponent } from './pagina/registro-paciente/registro-paciente.component';
-import { GestionPqrsComponent } from './pagina/gestion-pqrs/gestion-pqrs.component';
-import { CrearPqrsComponent } from './pagina/crear-pqrs/crear-pqrs.component';
-import { DetallePqrsComponent } from './pagina/detalle-pqrs/detalle-pqrs.component';
+import { InicioComponent } from './pagina/generalidades/inicio/inicio.component';
+import { LoginComponent } from './pagina/generalidades/login/login.component';
+import { RegistroPacienteComponent } from './pagina/generalidades/registro-paciente/registro-paciente.component';
+import { GestionPqrsComponent } from './pagina/paciente/gestion-pqrs/gestion-pqrs.component';
+import { CrearPqrsComponent } from './pagina/paciente/crear-pqrs/crear-pqrs.component';
+import { DetallePqrsComponent } from './pagina/paciente/detalle-pqrs/detalle-pqrs.component';
 import { LoginGuard } from './guards/permiso.service';
 import { RolesGuard }from './guards/roles.service';
-import { AtencionCitaComponentComponent } from './pagina/atencion-cita-component/atencion-cita-component.component';
-import { CrearMedicoComponentComponent } from './pagina/crear-medico-component/crear-medico-component.component';
-import { GestionMedicoComponentComponent } from './pagina/gestion-medico-component/gestion-medico-component.component';
-import { GestionPacienteComponentComponent } from './pagina/gestion-paciente-component/gestion-paciente-component.component';
-import { EditarMedicoComponent } from './pagina/editar-medico/editar-medico.component';
+import { AtencionCitaComponentComponent } from './pagina/medico/atencion-cita-component/atencion-cita-component.component';
+import { CrearMedicoComponentComponent } from './pagina/administrador/crear-medico-component/crear-medico-component.component';
+import { GestionMedicoComponentComponent } from './pagina/administrador/gestion-medico-component/gestion-medico-component.component';
+import { GestionPacienteComponentComponent } from './pagina/paciente/gestion-paciente-component/gestion-paciente-component.component';
+import { EditarMedicoComponent } from './pagina/administrador/editar-medico/editar-medico.component';
 
 const routes: Routes = [
 { path: "", component: InicioComponent },
