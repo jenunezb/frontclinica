@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alerta } from 'src/app/modelo/alerta';
+import { DetallePacienteDTO } from 'src/app/modelo/detalle-paciente-dto';
 import { RegistroPacienteDTO } from 'src/app/modelo/registro-paciente-dto';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { ClinicaService } from 'src/app/servicios/clinica.service';
 import { ImagenService } from 'src/app/servicios/imagen.service';
+import { UsuarioService } from 'src/app/servicios/paciente.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-gestion-paciente-component',
@@ -18,14 +21,21 @@ export class GestionPacienteComponentComponent {
   archivos!:FileList;
   tipoSangre: string[]= [];
   registroPacienteDTO: RegistroPacienteDTO;
-  selectedCiudad: string = ""; // Nueva propiedad para manejar la selección
+  selectedCiudad: string = "";
+  codigoPaciente: number = 0;
+  detallePaciente: DetallePacienteDTO;
 
-  constructor(private clinicaService: ClinicaService,private authService : AuthService, private router: Router, 
-    private imagenService: ImagenService) {
+
+  constructor(private clinicaService: ClinicaService,private authService : AuthService,
+     private router: Router, private tokenService: TokenService,
+    private imagenService: ImagenService,
+    private pacienteService: UsuarioService) {
     this.registroPacienteDTO = new RegistroPacienteDTO();
+    this.detallePaciente = new DetallePacienteDTO();
     this.cargarCiudades();
     this.cargarEps();
     this.cargarTipoSangre();
+    this.obtenerPaciente();
   }
 
   private cargarCiudades() {
@@ -62,8 +72,22 @@ export class GestionPacienteComponentComponent {
   }
 
   public editar(){
-
+    
   }
+
+  public obtenerPaciente(){
+    this.codigoPaciente=this.tokenService.getCodigo();
+    this.pacienteService.obtenerPaciente(this.codigoPaciente).subscribe({
+      next: data =>{
+        this.detallePaciente = data.respuesta;
+        console.log(this.detallePaciente, "yyyyyyyyyyy")
+      },
+      error: error => {
+        alert(error.error.respuesta);
+      }
+    })
+  }
+
   public subirImagen() {
     if (this.archivos != null && this.archivos.length > 0) {
     const formData = new FormData();
