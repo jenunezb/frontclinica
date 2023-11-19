@@ -72,7 +72,7 @@ export class GestionPacienteComponentComponent {
   }
 
   public editar(){
-    
+    this.pacienteService.editarPerfil()
   }
 
   public obtenerPaciente(){
