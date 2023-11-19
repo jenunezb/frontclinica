@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DetalleMedicoDTO } from 'src/app/modelo/detalle-medico-dto';
 import { ItemMedicoDTO } from 'src/app/modelo/item-medico.dto';
 import { AdministradorService } from 'src/app/servicios/administrador.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-medico-component',
@@ -11,7 +11,7 @@ import { AdministradorService } from 'src/app/servicios/administrador.service';
 export class GestionMedicoComponentComponent {
   public listaMedicos: ItemMedicoDTO[] = [];
 
-  constructor(private administradorService: AdministradorService) {}
+  constructor(private administradorService: AdministradorService, private router:Router) {}
 
   ngOnInit(): void {
     this.listarMedicos();
@@ -32,6 +32,7 @@ export class GestionMedicoComponentComponent {
   public editarMedico(medico: ItemMedicoDTO): void {
     // Implementa lógica para editar el médico (puedes redirigir a una página de edición, por ejemplo)
     console.log('Editar médico:', medico);
+    this.router.navigate(['/crear-medico']);
   }
 
   public eliminarMedico(medico: ItemMedicoDTO): void {
@@ -43,7 +44,7 @@ export class GestionMedicoComponentComponent {
       },
       error => {
         console.error('Error al eliminar médico', error);
-        // Muestra una alerta de error si es 
+        // Muestra una alerta de error si es
         alert('Error al eliminar médico');
         this.listarMedicos();
       }

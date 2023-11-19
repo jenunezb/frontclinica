@@ -7,6 +7,7 @@ import { AdministradorService } from 'src/app/servicios/administrador.service';
 import { ClinicaService } from 'src/app/servicios/clinica.service';
 import { ImagenService } from 'src/app/servicios/imagen.service';
 
+
 @Component({
   selector: 'app-crear-medico-component',
   templateUrl: './crear-medico-component.component.html',
