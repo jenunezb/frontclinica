@@ -11,6 +11,7 @@ import { ItemCitaAdminDTO } from '../modelo/item-cita-admin-dto';
 import { EstadoPQRS } from '../modelo/estado-pqrs';
 import { HistorialConsultas } from '../modelo/historial-consultas';
 import { ItemPacienteDTO } from '../modelo/item-paciente-dto';
+import { ItemMedicoDTO } from '../modelo/item-medico.dto';
 @
 Injectable({
   providedIn: 'root'
@@ -31,11 +32,11 @@ export class AdministradorService {
 
   public eliminarMedico(codigoMedico: number): Observable<MensajeDTO> {
     // Ajusta la URL y el tipo de solicitud según tu API
-    return this.http.delete<MensajeDTO>(`${this.administradorURL}/eliminar/${codigoMedico}`);
+    return this.http.delete<MensajeDTO>(`${this.administradorURL}?codigo=${codigoMedico}`);
   }
 
-  public listarMedicos(): Observable<DetalleMedicoDTO[]> {
-    return this.http.get<DetalleMedicoDTO[]>(`${this.administradorURL}/listar`);
+  public listarMedicos(): Observable<ItemMedicoDTO[]> {
+    return this.http.get<ItemMedicoDTO[]>(`${this.administradorURL}/listaMedicos`);
   }
 
   public obtenerMedico(codigoMedico: number): Observable<MensajeDTO> {
