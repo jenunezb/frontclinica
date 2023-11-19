@@ -77,7 +77,7 @@
                 <div class="col-sm-10">
                 <input #telefono="ngModel"
                 [ngClass]="correo.invalid && (telefono.dirty || telefono.touched) ? 'is-invalid' : ''" type="text"
-                name="telefono" class="form-control" required [(ngModel)]="registroMedicoDTO.telefono" [(ngModel)]="registroMedicoDTO.urlFoto" required/>
+                name="telefono" class="form-control" required [(ngModel)]="registroMedicoDTO.telefono" required/>
                 </div>
                 </div>
 
@@ -101,7 +101,7 @@
                     <input type="file" class="form-control" name="foto" (change)="onFileChange($event)" />
                     </div>
                     <div class="col-sm-2" >
-                    <button type="submit" [disabled]="archivos == null" class="btn btn-primary"
+                    <button type="button" [disabled]="archivos == null" class="btn btn-primary"
                     (click)="subirImagen()" >
                     <i class="fa-solid fa-cloud-arrow-up me-2"></i>Subir Foto
                     </button>
@@ -113,7 +113,7 @@
                             <i class="fa-solid fa-circle-plus me-1"></i>Registrarse
                         </button>
                     </div>
-            
+
                     <app-alerta [alerta]="alerta"></app-alerta>
         </div>
         </form>

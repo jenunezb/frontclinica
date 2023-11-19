@@ -21,7 +21,7 @@ export class RegistroPacienteComponent {
   registroPacienteDTO: RegistroPacienteDTO;
   selectedCiudad: string = ""; // Nueva propiedad para manejar la selección
 
-  constructor(private clinicaService: ClinicaService,private authService : AuthService, private router: Router, 
+  constructor(private clinicaService: ClinicaService,private authService : AuthService, private router: Router,
     private imagenService: ImagenService) {
     this.registroPacienteDTO = new RegistroPacienteDTO();
     this.cargarCiudades();
@@ -89,9 +89,9 @@ export class RegistroPacienteComponent {
       }
 
 
-     public onFileChange(event: any) {
+public onFileChange(event: any) {
 if (event.target.files.length > 0) {
-this.registroPacienteDTO.urlFoto = event.target.files[0].name;
+this.registroPacienteDTO.urlFoto = event.target.files[0];
 this.archivos = event.target.files;
 }
 }
@@ -99,7 +99,7 @@ this.archivos = event.target.files;
 public subirImagen() {
   if (this.archivos != null && this.archivos.length > 0) {
   const formData = new FormData();
-  formData.append('file', this.archivos[0]);
+  formData.append('multipartFile', this.archivos[0]);
   this.imagenService.subir(formData).subscribe({
   next: data => {
   this.registroPacienteDTO.urlFoto = data.respuesta.url;
