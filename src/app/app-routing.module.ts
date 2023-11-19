@@ -23,7 +23,7 @@ const routes: Routes = [
 { path: "detalle-pqrs/:codigo", component: DetallePqrsComponent },
 { path: "login", component: LoginComponent, canActivate: [LoginGuard] },
 { path: "registro", component: RegistroPacienteComponent, canActivate: [LoginGuard] },
-{ path: "gestion-pqrs", component: GestionPqrsComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
+{ path: "gestion-pqrs", component: GestionPqrsComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente", "admin"] } },
 { path: "crear-pqrs", component: CrearPqrsComponent, canActivate: [RolesGuard], data: { expectedRole: ["paciente"] } },
 { path: "detalle-pqrs/:codigo", component: DetallePqrsComponent, canActivate: [RolesGuard], data: { expectedRole: ["paciente", "admin"] } },
 { path: "atender-cita", component: AtencionCitaComponentComponent, canActivate: [RolesGuard], data: { expectedRole: ["medico"] } },

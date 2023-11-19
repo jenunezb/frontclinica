@@ -43,8 +43,8 @@ export class AdministradorService {
     return this.http.get<MensajeDTO>(`${this.administradorURL}/${codigoMedico}`);
   }
 
-  public listarPQRS(): Observable<ItemPQRSDTO[]> {
-    return this.http.get<ItemPQRSDTO[]>(`${this.administradorURL}/listar-pqrs`);
+  public listarPQRS(): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.administradorURL}/listar-pqrs`);
   }
 
   public verDetallePQRS(codigo: number): Observable<DetallePQRSDTO> {

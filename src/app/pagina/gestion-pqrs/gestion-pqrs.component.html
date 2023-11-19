@@ -13,6 +13,8 @@
     <th>Código</th>
     <th>Motivo</th>
     <th>Fecha de radicación</th>
+    <th>Paciente</th>
+    <th>Medico</th>
     <th>Estado</th>
     </tr>
     </thead>
@@ -21,6 +23,8 @@
     <td><p>{{item.codigo}}</p></td>
     <td><p>{{item.motivo}}</p></td>
     <td><p>{{item.fecha}}</p></td>
+    <td><p>{{item.paciente}}</p></td>
+    <td><p>{{item.medico}}</p></td>
     <td><span [ngClass]="item.estado == 'ACTIVO' ? 'text-bg-success' :
         'text-bg-danger'" class="badge">{{item.estado}}</span></td>
         <td><a routerLink="/detalle-pqrs/{{item.codigo}}" ><i class="fa-solid
