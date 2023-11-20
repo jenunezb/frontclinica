@@ -36,6 +36,15 @@ export class ListarCitasComponent {
       }
       );
     }
+    this.pacienteService.listarCitas(this.tokenService.getCodigo()).subscribe(
+      (response: any) => {
+        console.log('Respuesta del servicio:', response.respuesta);
+        this.listaCitas = response.respuesta;
+    },
+    error => {
+      console.error('Error al obtener la lista de citas', error);
+    }
+    );
   }
 
   public editarCita(){

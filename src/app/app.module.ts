@@ -19,7 +19,6 @@ import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 import { GestionMedicoComponentComponent } from './pagina/administrador/gestion-medico-component/gestion-medico-component.component';
 import { GestionPacienteComponentComponent } from './pagina/paciente/gestion-paciente-component/gestion-paciente-component.component';
 import { EditarMedicoComponent } from './pagina/administrador/editar-medico/editar-medico.component';
-import { GestionCitasComponent } from './pagina/paciente/gestion-citas/gestion-citas.component';
 import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.component';
 import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.component';
 
@@ -38,7 +37,6 @@ import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.compone
     GestionMedicoComponentComponent,
     GestionPacienteComponentComponent,
     EditarMedicoComponent,
-    GestionCitasComponent,
     CrearCitaComponent,
     ListarCitasComponent
 
