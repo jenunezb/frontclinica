@@ -7,7 +7,9 @@ templateUrl: './crear-pqrs.component.html',
 styleUrls: ['./crear-pqrs.component.css']
 })
 export class CrearPqrsComponent {
+
 registroPQRSDTO: RegistroPQRSDTO;
+
 constructor(private pqrsService: PqrsService) {
 this.registroPQRSDTO = new RegistroPQRSDTO();
 }

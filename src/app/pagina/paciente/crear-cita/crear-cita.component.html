@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Asignación de Citas</h2>
+
+    <form #f="ngForm" (ngSubmit)="crearCita()">
+        <div class="info-section">
+            <h2>Información del Paciente</h2>
+            <div class="info-box">
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Cédula:</strong> 123456789</p>
+                <p><strong>Correo:</strong> juan.perez@example.com</p>
+            </div>
+        </div>
+
+        <div class="cita-section">
+            <h2>Información de la Cita</h2>
+            <div class="cita-box">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Fecha: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="fechaNacimiento" [(ngModel)]="itemCitaPacienteDTO.fechaCita" required />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Especialidad: </label>
+                    <div class="col-sm-10">
+                        <select name="tipoSangre" required class="form-select" [(ngModel)]="medicosDisponibles.especialidad">
+                            <option value="" selected>Seleccione la especialidad</option>
+                            <option [value]="item" *ngFor="let item of especialidades; index as i">{{item}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Médico: </label>
+                    <div class="col-sm-10">
+                        <select name="tipoSangre" required class="form-select" [(ngModel)]="itemCitaPacienteDTO.medico">
+                            <option value="" selected>Seleccione médico</option>
+                            <option [value]="item" *ngFor="let item of medico; index as i">{{item}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Hora:</label>
+                    <div class="col-sm-10">
+                        <input type="time" name="hora" [(ngModel)]="itemCitaPacienteDTO.hora" required />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">
+            <i class="fa-solid fa-circle-plus me-1"></i>Registrarse
+        </button>
+
+        <app-alerta [alerta]="alerta"></app-alerta>
+    </form>
+</div>

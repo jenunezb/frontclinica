@@ -20,7 +20,7 @@ import { GestionMedicoComponentComponent } from './pagina/administrador/gestion-
 import { GestionPacienteComponentComponent } from './pagina/paciente/gestion-paciente-component/gestion-paciente-component.component';
 import { EditarMedicoComponent } from './pagina/administrador/editar-medico/editar-medico.component';
 import { GestionCitasComponent } from './pagina/paciente/gestion-citas/gestion-citas.component';
-import { DetalleCitasComponent } from './pagina/paciente/detalle-citas/detalle-citas.component';
+import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { DetalleCitasComponent } from './pagina/paciente/detalle-citas/detalle-c
     GestionPacienteComponentComponent,
     EditarMedicoComponent,
     GestionCitasComponent,
-    DetalleCitasComponent
+    CrearCitaComponent
 
   ],
   imports: [

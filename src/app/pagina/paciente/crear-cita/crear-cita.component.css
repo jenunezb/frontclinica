@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eff5fb;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 800px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-section h2 {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cita-section {
+    margin-bottom: 20px;
+}
+
+.cita-section h2 {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.cita-box {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Estilos para el campo de fecha */
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Estilos para el campo de hora */
+input[type="time"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Estilo adicional para resaltar el foco en los campos de fecha y hora */
+input[type="date"]:focus,
+input[type="time"]:focus {
+    border-color: #3498db; /* Cambia el color a tu preferencia */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7); /* Efecto de sombra al enfocar */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
