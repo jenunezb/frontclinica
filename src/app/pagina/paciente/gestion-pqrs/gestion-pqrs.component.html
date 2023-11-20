@@ -28,13 +28,11 @@
 
     <select [(ngModel)]="item.estado" name="estado" class="form-select"
         [ngClass]="item.estado == 'ACTIVO' ? 'text-bg-success' : 'text-bg-'"
-        (change)="cambiarEstado()">
-    <option value="ACTIVO" style="color: green;">ACTIVO</option>
-    <option value="INACTIVO" style="color: red;">INACTIVO</option>
-    <option value="EN_PROCESO" style="color: orange;">EN PROCESO</option>
-    <option value="CERRADA" style="color: blue;">CERRADA</option>
-    <option value="RECHAZADA" style="color: purple;">RECHAZADA</option>
-    <option value="FINALIZADA" style="color: gray;">FINALIZADA</option>
+        (change)="cambiarEstado(item.codigo, item.estado)">
+    <option value="CERRADA" style="color: green;">CERRADO</option>
+    <option value="RECHAZADA" style="color: red;">RECHAZADO</option>
+    <option value="FINALIZADA" style="color: orange;">FINALIZADO</option>
+    <option value="EN_PROCESO" style="color: blue;">EN PROCESO</option>
 </select>
         
         <td><a routerLink="/detalle-pqrs/{{item.codigo}}" ><i class="fa-solid

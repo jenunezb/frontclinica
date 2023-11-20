@@ -12,9 +12,12 @@ styleUrls: ['./gestion-pqrs.component.css']
 })
 export class GestionPqrsComponent {
 pqrs: ItemPQRSDTO[];
+estado: EstadoPQRS;
+
 constructor(private pacienteService: UsuarioService, private tokenService: TokenService, private router: Router, private administradorService: AdministradorService) {
   this.pqrs = [];
   this.obtenerPqrs();
+  this.estado = new EstadoPQRS();
   }
 
   public obtenerPqrs() {
@@ -52,7 +55,27 @@ error: error => {
   }
  
   }
-  public cambiarEstado(){
+  public cambiarEstado(codigo:number, estador:string){
+    if (codigo) {
+      // Lógica para cambiar el estado
+      console.log('Cambiando estado para el código:', codigo);
+  } else {
+      console.error('El código no está definido.');
+  }
+this.estado.codigoPQRS=codigo;
+this.estado.estadoPQRS=estador;
 
+console.log(this.estado);
+
+    if (this.tokenService.getRole()[0] === "a") {
+      this.administradorService.cambiarEstadoPQRS(this.estado).subscribe({
+        next: data => {
+        console.log(data.respuesta);
+        },
+        error: error => {
+            console.log(error);
+        }
+        });
+    }
   }
   }
