@@ -15,6 +15,7 @@ constructor(private pacienteService: UsuarioService, private tokenService: Token
   this.pqrs = [];
   this.obtenerPqrs();
   }
+
   public obtenerPqrs() {
   let codigo = this.tokenService.getCodigo();
   if (this.tokenService.getRole()[0] === "p") {
@@ -49,5 +50,8 @@ error: error => {
     });
   }
  
+  }
+  public cambiarEstado(){
+
   }
   }

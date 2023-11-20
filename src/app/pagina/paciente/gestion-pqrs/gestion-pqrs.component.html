@@ -25,8 +25,13 @@
     <td><p>{{item.fecha}}</p></td>
     <td><p>{{item.paciente}}</p></td>
     <td><p>{{item.medico}}</p></td>
-    <td><span [ngClass]="item.estado == 'ACTIVO' ? 'text-bg-success' :
-        'text-bg-danger'" class="badge">{{item.estado}}</span></td>
+    <select [(ngModel)]="item.estado" name="estado" class="form-select"
+        [ngClass]="item.estado == 'ACTIVO' ? 'text-bg-success' : 'text-bg-danger'"
+        (change)="cambiarEstado()">
+    <option value="ACTIVO" [ngClass]="item.estado == 'ACTIVO' ? 'text-success' : ''">ACTIVO</option>
+    <option value="INACTIVO" [ngClass]="item.estado == 'INACTIVO' ? 'text-danger' : ''">INACTIVO</option>
+    </select>
+
         <td><a routerLink="/detalle-pqrs/{{item.codigo}}" ><i class="fa-solid
         fa-circle-info me-2"></i>Ver detalle</a></td>
         </tr>
