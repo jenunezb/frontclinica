@@ -118,4 +118,20 @@ export class GestionPacienteComponentComponent {
     this.alerta = { mensaje: 'Debe seleccionar una imagen y subirla', tipo: "danger" };
     }
     }
+
+    public eliminarPaciente(){
+     // Llama al servicio para eliminar el paciente
+     this.pacienteService.eliminarCuenta(this.tokenService.getCodigo()).subscribe({
+      next: data =>{
+
+        this.alerta = data.respuesta;
+        this.tokenService.logout();
+        this.router.navigate(['/login']);
+      },
+        error: error => {
+        this.alerta = { mensaje: error.error, tipo: "danger" };
+        }
+        });
+     
+    }
 }
