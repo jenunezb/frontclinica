@@ -13,6 +13,8 @@ styleUrls: ['./gestion-pqrs.component.css']
 export class GestionPqrsComponent {
 pqrs: ItemPQRSDTO[];
 estado: EstadoPQRS;
+esAdmin: boolean = false;
+
 
 constructor(private pacienteService: UsuarioService, private tokenService: TokenService, private router: Router, private administradorService: AdministradorService) {
   this.pqrs = [];
@@ -39,6 +41,7 @@ constructor(private pacienteService: UsuarioService, private tokenService: Token
       });
   }
   else{
+    this.esAdmin=true;
     this.administradorService.listarPQRS().subscribe({
 next: data => {
   this.pqrs = data.respuesta;
