@@ -49,4 +49,8 @@ export class UsuarioService {
   public listarCitas(codigo: number): Observable<ItemCitaPacienteDTO[]>{
       return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/listar-citas/${codigo}`);
   }
+  public historialMedico(codigo: number): Observable<ItemCitaPacienteDTO[]>{
+    return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/historial/${codigo}`);
+}
+  
   }

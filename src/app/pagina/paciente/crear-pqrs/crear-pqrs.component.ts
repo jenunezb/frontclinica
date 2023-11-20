@@ -34,7 +34,6 @@ public crearPqrs(){
   
 }
 
-
 public seleccionar(codigoCita:number){
 this.registroPQRSDTO.codigoCita = codigoCita;
 }

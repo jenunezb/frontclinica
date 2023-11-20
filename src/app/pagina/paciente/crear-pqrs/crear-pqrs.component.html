@@ -34,9 +34,9 @@
                         <ng-container *ngIf="cita.estadoCita === 'FINALIZADA' || cita.estadoCita==='CANCELADA'">
                             <td><input class="form-check-input" type="checkbox" (change)="seleccionar(cita.codigoCita)" /></td>
                             <td>{{ cita.codigoCita }}</td>
-                            <td>{{ cita.especialidad }}</td>
-                            <td><p>{{ cita.fecha | date: 'yyyy-MM-dd HH:mm:ss' }}</p></td>
-                            <td>{{ cita.nombreMedico }}</td>
+                            <td>{{ cita.especialidadMedico }}</td>
+                            <td><p>{{ cita.fechaCita | date: 'yyyy-MM-dd HH:mm:ss' }}</p></td>
+                            <td>{{ cita.medico }}</td>
                         </ng-container>
                     </tr>
 
