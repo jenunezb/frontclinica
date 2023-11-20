@@ -1,16 +1,16 @@
 <div class="container">
-    <h2>Gestión paciente</h2>
+    <h2>Registrarse</h2>
 
-    <form #f="ngForm" (ngSubmit)="editar()">
+    <form #f="ngForm" (ngSubmit)="registrar()">
         <div class="form-column">
 
-            <div class="mb-3 row">
+                <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre: </label>
                 <div class="col-sm-10">
                 <input #nombre="ngModel"
                 [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched) ? 'is-invalid' : ''"
                 type="text"
-                name="nombre" class="form-control" required [(ngModel)]="detallePaciente.nombre" />
+                name="nombre" class="form-control" required [(ngModel)]="registroPacienteDTO.nombre" />
                 </div>
                 </div>
 
@@ -19,7 +19,7 @@
                     <div class="col-sm-10">
                     <input #cedula="ngModel"
                     [ngClass]="cedula.invalid && (cedula.dirty || cedula.touched) ? 'is-invalid' : ''" type="text"
-                    name="cedula" class="form-control" required [(ngModel)]="detallePaciente.cedula" />
+                    name="cedula" class="form-control" required [(ngModel)]="registroPacienteDTO.cedula" />
                     </div>
                     </div>
 
@@ -28,14 +28,34 @@
                         <div class="col-sm-10">
                         <input #correo="ngModel"
                         [ngClass]="correo.invalid && (correo.dirty || correo.touched) ? 'is-invalid' : ''" type="text"
-                        name="correo" class="form-control" required [(ngModel)]="detallePaciente.correo" required email/>
+                        name="correo" class="form-control" required [(ngModel)]="registroPacienteDTO.correo" required email/>
                         </div>
                         </div>
 
             <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Contraseña: </label>
+                <div class="col-sm-10">
+                <input #password="ngModel"
+                [ngClass]="password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''" type="password"
+                name="password" class="form-control" required [(ngModel)]="registroPacienteDTO.password" required/>
+                </div>
+                </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Confirmar Contraseña: </label>
+                <div class="col-sm-10">
+                <input #confirmarPassword="ngModel"
+                [ngClass]="confirmarPassword.invalid && (confirmarPassword.dirty || confirmarPassword.touched) ? 'is-invalid' : ''" type="password"
+                name="confirmarPassword" class="form-control" required [(ngModel)]="registroPacienteDTO.confirmaPassword" required/>
+                <div class="alert alert-danger" role="alert" *ngIf="!sonIguales()">Las contraseñas no coinciden
+                </div>
+                </div>
+                </div>
+
+            <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Ciudad: </label>
                 <div class="col-sm-10">
-                    <select name="ciudad" required class="form-select" [(ngModel)]="detallePaciente.ciudad">
+                    <select name="ciudad" required class="form-select" [(ngModel)]="registroPacienteDTO.ciudad">
                         <option value="" selected>Seleccione una ciudad</option>
                         <option [value]="item" *ngFor="let item of ciudades; index as i">{{item}}</option>
                     </select>
@@ -48,21 +68,21 @@
             <div class="col-sm-10">
             <input #telefono="ngModel"
             [ngClass]="correo.invalid && (telefono.dirty || telefono.touched) ? 'is-invalid' : ''" type="text"
-            name="telefono" class="form-control" required [(ngModel)]="detallePaciente.telefono" required/>
+            name="telefono" class="form-control" required [(ngModel)]="registroPacienteDTO.telefono" required/>
             </div>
             </div>
 
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Fecha de nacimiento: </label>
             <div class="col-sm-10">
-                <input type="date" name="fechaNacimiento" [(ngModel)]="detallePaciente.fechaNacimiento" required />
+                <input type="date" name="fechaNacimiento" [(ngModel)]="registroPacienteDTO.fechaNacimiento" required />
             </div>
         </div>
 
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">EPS: </label>
             <div class="col-sm-10">
-                <select name="eps" required class="form-select" [(ngModel)]="detallePaciente.eps">
+                <select name="eps" required class="form-select" [(ngModel)]="registroPacienteDTO.eps">
                     <option value="" selected>Seleccione una eps</option>
                     <option [value]="item" *ngFor="let item of eps; index as i">{{item}}</option>
                 </select>
@@ -74,14 +94,14 @@
             <div class="col-sm-10">
             <input #alergias="ngModel"
             [ngClass]="alergias.invalid && (alergias.dirty || alergias.touched) ? 'is-invalid' : ''" type="text"
-            name="alergias" class="form-control" required [(ngModel)]="detallePaciente.alergias" required/>
+            name="alergias" class="form-control" required [(ngModel)]="registroPacienteDTO.alergias" required/>
             </div>
             </div>
 
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Tipo de sangre: </label>
             <div class="col-sm-10">
-                <select name="tipoSangre" required class="form-select" [(ngModel)]="detallePaciente.tipoSangre"  [(ngModel)]="registroPacienteDTO.urlFoto">
+                <select name="tipoSangre" required class="form-select" [(ngModel)]="registroPacienteDTO.tipoSangre"  [(ngModel)]="registroPacienteDTO.urlFoto">
                     <option value="" selected>Seleccione un tipo de sangre</option>
                     <option [value]="item" *ngFor="let item of tipoSangre; index as i">{{item}}</option>
                 </select>
@@ -94,8 +114,8 @@
             <input type="file" class="form-control" name="foto" (change)="onFileChange($event)" />
             </div>
             <div class="col-sm-2" >
-            <button type="submit" [disabled]="archivos == null" class="btn btn-primary" 
-            (click)="obtenerPaciente()" >
+            <button type="button" [disabled]="archivos == null" class="btn btn-primary"
+            (click)="subirImagen()" >
             <i class="fa-solid fa-cloud-arrow-up me-2"></i>Subir Foto
             </button>
             </div>
@@ -104,11 +124,10 @@
 
         <div>
             <button class="btn btn-primary" type="submit" [disabled]="f.invalid || !sonIguales()">
-                <i class="fa-solid fa-circle-plus me-1"></i>Actualizar información
+                <i class="fa-solid fa-circle-plus me-1"></i>Registrarse
             </button>
         </div>
 
         <app-alerta [alerta]="alerta"></app-alerta>
     </form>
 </div>
-

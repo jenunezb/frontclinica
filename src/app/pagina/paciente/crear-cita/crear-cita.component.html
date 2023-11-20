@@ -1,0 +1,76 @@
+<div class="container">
+    <h2>Asignación de Citas</h2>
+
+    <form #f="ngForm" (ngSubmit)="crearCita()">
+        <!-- Información del Paciente
+        <div class="info-section">
+            <h2>Información del Paciente</h2>
+            <div class="info-box">
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Cédula:</strong> 123456789</p>
+                <p><strong>Correo:</strong> juan.perez@example.com</p>
+            </div>
+        </div> -->
+
+        <!-- Información de la Cita -->
+        <div class="cita-section">
+            <div class="cita-box">
+                <!-- Fecha de la Cita -->
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Fecha: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="fechaNacimiento" [(ngModel)]="medicosDisponibles.fecha" required />
+                    </div>
+                </div>
+
+                <!-- Especialidad -->
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Especialidad: </label>
+                    <div class="col-sm-10">
+                        <select name="tipoSangre" required class="form-select" [(ngModel)]="medicosDisponibles.especialidad">
+                            <option value="" selected>Seleccione la especialidad</option>
+                            <option [value]="item" *ngFor="let item of especialidades; index as i">{{item}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-center"> <!-- Agregado -->
+                    <button type="button" [disabled]="medicosDisponibles.especialidad == '' || medicosDisponibles.fecha==''" class="btn btn-primary"
+                            (click)="buscarMedico()">
+                    <i class="fa-solid fa-cloud-arrow-up me-2"></i>Buscar Médico
+                    </button>
+                </div>
+                <br>
+                
+                <!-- Médico -->
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Médico / Hora: </label>
+                    <div class="col-sm-10">
+                        <select name="tipoSangre" required class="form-select" [(ngModel)]="medicoSeleccionado">
+                            <option value="" selected>Seleccione médico</option>
+                            <option [value]="item" *ngFor="let item of medicos; index as i">{{item.nombreMedico}} -> {{item.horaDisponible}} </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Motivo: </label>
+                    <div class="col-sm-10">
+                    <input #nombre="ngModel"
+                    [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched) ? 'is-invalid' : ''"
+                    type="text"
+                    name="nombre" class="form-control" required [(ngModel)]="itemCitaPacienteDTO.motivo" />
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Botón para enviar el formulario -->
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">
+            <i class="fa-solid fa-circle-plus me-1"></i>Registrarse
+        </button>
+
+        <!-- Componente de Alerta -->
+        <app-alerta [alerta]="alerta"></app-alerta>
+    </form>
+</div>
