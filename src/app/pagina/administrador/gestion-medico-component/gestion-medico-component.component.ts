@@ -16,12 +16,6 @@ export class GestionMedicoComponentComponent {
   ngOnInit(): void {
     this.listarMedicos();
   }
-  
-  public iraBusqueda(valor: string) {
-    if (valor) {
-      this.router.navigate(['/busqueda', valor]);
-    }
-  }
 
   public listarMedicos(): void {
     this.administradorService.listarMedicos().subscribe(
