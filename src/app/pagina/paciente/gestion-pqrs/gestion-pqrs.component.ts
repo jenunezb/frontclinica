@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { EstadoPQRS } from 'src/app/modelo/estado-pqrs';
 import { ItemPQRSDTO } from 'src/app/modelo/item-pqrsdto';
 import { AdministradorService } from 'src/app/servicios/administrador.service';
 import { UsuarioService } from 'src/app/servicios/paciente.service';
