@@ -1,7 +1,6 @@
 export class ItemCitaPacienteDTO {
-    fechaCita:string="";
+    fechaCita: string="";
     motivo:string="";
-    paciente:string="";
-    medico:string="";
-    hora:string="";
+    idPaciente:number=0;
+    idMedico:number=0;
 }

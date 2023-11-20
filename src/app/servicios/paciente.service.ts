@@ -5,6 +5,7 @@ import { MensajeDTO } from '../modelo/mensaje-dto';
 import { RegistroPQRSDTO } from '../modelo/registro-pqrsdto';
 import { DetallePacienteDTO } from '../modelo/detalle-paciente-dto';
 import { MedicosDisponiblesDTO } from '../modelo/medicos-disponibles-dto';
+import { ItemCitaPacienteDTO } from '../modelo/item-cita-paciente-dto';
 
 @Injectable({
 providedIn: 'root'
@@ -31,7 +32,9 @@ export class UsuarioService {
   public medicosDisponibles( medicosDisponibles: MedicosDisponiblesDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.userUrl}/listar-medicos`, medicosDisponibles);
   }
-  
+  public agendarCita( itemCitaPacienteDTO: ItemCitaPacienteDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.userUrl}/cita`, itemCitaPacienteDTO);
+  }
   // faltantes
 
   public eliminarCuenta(codigo: number): Observable<MensajeDTO> {
