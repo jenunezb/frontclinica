@@ -23,6 +23,10 @@ import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.comp
 import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.component';
 import { GestionHistorialComponent } from './pagina/gestion-historial/gestion-historial.component';
 import { HistoriaClinicaComponent } from './pagina/historia-clinica/historia-clinica.component';
+import { ListarCitasPendientesComponent } from './pagina/medico/listar-citas-pendientes/listar-citas-pendientes.component';
+import { AtenderCitaComponent } from './pagina/medico/atender-cita/atender-cita.component';
+import { AgendarDiaLibreComponent } from './pagina/medico/agendar-dia-libre/agendar-dia-libre.component';
+import { ListarCitasRealizadasComponent } from './pagina/medico/listar-citas-realizadas/listar-citas-realizadas.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { HistoriaClinicaComponent } from './pagina/historia-clinica/historia-cli
     CrearCitaComponent,
     ListarCitasComponent,
     GestionHistorialComponent,
-    HistoriaClinicaComponent
+    HistoriaClinicaComponent,
+    ListarCitasPendientesComponent,
+    AtenderCitaComponent,
+    AgendarDiaLibreComponent,
+    ListarCitasRealizadasComponent
 
   ],
   imports: [
