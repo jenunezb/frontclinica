@@ -4,6 +4,7 @@ import { Alerta } from 'src/app/modelo/alerta';
 import { SesionDTO } from 'src/app/modelo/sesion-dto';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
+import { ClinicaService } from 'src/app/servicios/clinica.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit{
   sesionDTO: SesionDTO;
   alerta!: Alerta;
 
-  constructor(private authService: AuthService, private router: Router, private tokenService: TokenService){
+  constructor(private authService: AuthService, private router: Router, private tokenService: TokenService, private clinicaService:ClinicaService){
   this.sesionDTO = new SesionDTO();
   }
 
@@ -37,5 +38,15 @@ export class LoginComponent implements OnInit{
       this.alerta = { mensaje: err.error.respuesta, tipo: "danger" };
   }
 });
+  }
+
+  public olvidePassword(){
+    this.clinicaService.enviarLinkRecuperacion(this.sesionDTO.email).subscribe({
+      next: data => {
+      alert(JSON.stringify(data.respuesta));
+    },
+    error: err => {
+      this.alerta = { mensaje: err.error.respuesta, tipo: "danger" };
+  }});
   }
 }
