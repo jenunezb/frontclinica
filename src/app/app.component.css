@@ -1,0 +1,10 @@
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Cambia el color de fondo según tus preferencias */
+    z-index: 1; /* Ajusta el z-index según sea necesario */
+  }
+  
+  .seccion-pagina {
+    margin-bottom: 80px; /* Ajusta el margen inferior según la altura de tu footer */
+  }

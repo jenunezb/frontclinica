@@ -5,28 +5,31 @@
   justify-content-lg-start">
   <a routerLink="" class="d-flex align-items-center mb-2 mb-lg-0 text-bg-dark
   text-decoration-none">
+  <i class="fas fa-hospital fa-3x"></i>
   <span class="fs-4 ms-3 me-3">{{title}}</span>
   </a>
-  <ul *ngIf="roles.includes('admin')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    <li><a routerLink="/crear-medico" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Crear Médico</a></li>
-    <li><a routerLink="/gestion-medico" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Listar Medicos</a></li>
-    <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión PQRS</a></li>
-    <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Lista Citas</a></li>
 
-  </ul>
-  <ul *ngIf="roles.includes('paciente')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestionar Citas</a></li>
-    <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión PQRS</a></li>
-    <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Editar perfil</a></li>
-    <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Historial</a></li>
-  </ul>
+<ul *ngIf="roles.includes('admin')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+  <li><a routerLink="/crear-medico" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-user-md"></i> Crear Médico</a></li>
+  <li><a routerLink="/gestion-medico" class="nav-link px-1 text-secondary f-4 ms-3 me-1 text-dark"><i class="fas fa-list"></i> Listar Médicos</a></li>
+  <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-comments"></i> Gestión PQRS</a></li>
+  <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-calendar"></i> Lista Citas</a></li>
+</ul>
+
+
+<ul *ngIf="roles.includes('paciente')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+  <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-calendar"></i> Gestionar Citas</a></li>
+  <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-comments"></i> Gestión PQRS</a></li>
+  <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-user"></i> Editar perfil</a></li>
+  <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-history"></i> Historial</a></li>
+</ul>
+
   <ul *ngIf="roles.includes('medico')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
     <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-file-medical"></i> Historiales</a></li>
     <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-calendar-alt"></i> Citas Pendientes</a></li>
     <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-5 ms-1 me-1 text-dark"><i class="fas fa-calendar-plus"></i> Agendar día libre</a></li>
-    <li><a routerLink="/citas-realizadas" class="nav-link px-1 text-secondary fs-5 ms-1 me-1 text-dark"><i class="fas fa-check-circle"></i> Citas realizadas</a></li>
+    <li><a routerLink="/citas-realizadas" class="nav-link px-1 text-secondary fs-6 ms-1 me-1 text-dark"><i class="fas fa-check-circle"></i> Citas realizadas</a></li>
   </ul>
-  
 
 <div *ngIf="!isLogged; then nologged else logged"></div>
 <ng-template #nologged>
@@ -52,11 +55,20 @@
   <div class="container" >
   </div>
   </div>
-<div class="container">
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4
-border-top">
-<div class="col-md-4 d-flex align-items-center">
-<span class="mb-3 mb-md-0 text-muted">&copy; Clinica del Carmen</span>
-</div>
-</footer>
-</div>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <span class="mb-3 mb-md-0 text-muted fa-2x">&copy; Clinica del Carmen</span>
+      </div>
+  
+      <div class="col-md-4 d-flex justify-content-end">
+        <!-- Iconos de redes sociales -->
+        <a href="#" class="me-3"><i class="fab fa-facebook fa-3x"></i></a>
+        <a href="#" class="me-3"><i class="fab fa-instagram fa-3x"></i></a>
+  
+        <!-- Enlace de contacto -->
+        <a href="mailto:info@clinicadelcarmen.com" class="me-3"><i class="far fa-envelope fa-3x"></i> </a>
+      </div>
+    </footer>
+  </div>
+  
