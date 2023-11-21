@@ -11,12 +11,19 @@
     <li><a routerLink="/crear-medico" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Crear Médico</a></li>
     <li><a routerLink="/gestion-medico" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Listar Medicos</a></li>
     <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión PQRS</a></li>
+    <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Lista Citas</a></li>
+
   </ul>
   <ul *ngIf="roles.includes('paciente')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    <li><a routerLink="/gestion-citas" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión Citas</a></li>
+    <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestionar Citas</a></li>
     <li><a routerLink="/gestion-pqrs" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Gestión PQRS</a></li>
     <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Editar perfil</a></li>
+    <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Historial</a></li>
   </ul>
+  <ul *ngIf="roles.includes('medico')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Historial</a></li>
+  </ul>
+
 <div *ngIf="!isLogged; then nologged else logged"></div>
 <ng-template #nologged>
   <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul>

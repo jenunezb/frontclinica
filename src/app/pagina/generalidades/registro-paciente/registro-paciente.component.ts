@@ -113,4 +113,5 @@ public subirImagen() {
   this.alerta = { mensaje: 'Debe seleccionar una imagen y subirla', tipo: "danger" };
   }
   }
+
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { EstadoPQRS } from 'src/app/modelo/estado-pqrs';
 import { ItemPQRSDTO } from 'src/app/modelo/item-pqrsdto';
 import { AdministradorService } from 'src/app/servicios/administrador.service';
 import { UsuarioService } from 'src/app/servicios/paciente.service';
@@ -11,10 +12,16 @@ styleUrls: ['./gestion-pqrs.component.css']
 })
 export class GestionPqrsComponent {
 pqrs: ItemPQRSDTO[];
+estado: EstadoPQRS;
+esAdmin: boolean = false;
+
+
 constructor(private pacienteService: UsuarioService, private tokenService: TokenService, private router: Router, private administradorService: AdministradorService) {
   this.pqrs = [];
   this.obtenerPqrs();
+  this.estado = new EstadoPQRS();
   }
+
   public obtenerPqrs() {
   let codigo = this.tokenService.getCodigo();
   if (this.tokenService.getRole()[0] === "p") {
@@ -34,6 +41,7 @@ constructor(private pacienteService: UsuarioService, private tokenService: Token
       });
   }
   else{
+    this.esAdmin=true;
     this.administradorService.listarPQRS().subscribe({
 next: data => {
   this.pqrs = data.respuesta;
@@ -49,5 +57,28 @@ error: error => {
     });
   }
  
+  }
+  public cambiarEstado(codigo:number, estador:string){
+    if (codigo) {
+      // Lógica para cambiar el estado
+      console.log('Cambiando estado para el código:', codigo);
+  } else {
+      console.error('El código no está definido.');
+  }
+this.estado.codigoPQRS=codigo;
+this.estado.estadoPQRS=estador;
+
+console.log(this.estado);
+
+    if (this.tokenService.getRole()[0] === "a") {
+      this.administradorService.cambiarEstadoPQRS(this.estado).subscribe({
+        next: data => {
+        console.log(data.respuesta);
+        },
+        error: error => {
+            console.log(error);
+        }
+        });
+    }
   }
   }

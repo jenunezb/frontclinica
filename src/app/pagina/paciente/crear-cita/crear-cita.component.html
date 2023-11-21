@@ -1,17 +1,9 @@
 <div class="container">
-    <h2>Asignación de Citas</h2>
+    <div class="text-center">
+        <h2>Asignación de Citas</h2>
+    </div>
 
     <form #f="ngForm" (ngSubmit)="crearCita()">
-        <!-- Información del Paciente
-        <div class="info-section">
-            <h2>Información del Paciente</h2>
-            <div class="info-box">
-                <p><strong>Nombre:</strong> Juan Pérez</p>
-                <p><strong>Cédula:</strong> 123456789</p>
-                <p><strong>Correo:</strong> juan.perez@example.com</p>
-            </div>
-        </div> -->
-
         <!-- Información de la Cita -->
         <div class="cita-section">
             <div class="cita-box">
@@ -65,10 +57,11 @@
             </div>
         </div>
 
-        <!-- Botón para enviar el formulario -->
+       <div class="text-center">
         <button class="btn btn-primary" type="submit" [disabled]="f.invalid">
-            <i class="fa-solid fa-circle-plus me-1"></i>Registrarse
+            <i class="fa-solid fa-circle-plus me-1"></i>Agendar cita
         </button>
+        </div>
 
         <!-- Componente de Alerta -->
         <app-alerta [alerta]="alerta"></app-alerta>

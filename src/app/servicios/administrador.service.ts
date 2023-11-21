@@ -12,6 +12,7 @@ import { EstadoPQRS } from '../modelo/estado-pqrs';
 import { HistorialConsultas } from '../modelo/historial-consultas';
 import { ItemPacienteDTO } from '../modelo/item-paciente-dto';
 import { ItemMedicoDTO } from '../modelo/item-medico.dto';
+import { EstadoDTO } from '../modelo/estado-dto';
 @
 Injectable({
   providedIn: 'root'
@@ -59,8 +60,8 @@ export class AdministradorService {
     return this.http.get<ItemCitaAdminDTO[]>(`${this.administradorURL}/listar-citas`);
   }
 
-  public cambiarEstadoPQRS(codigoPQRS: number, estadoPQRS: EstadoPQRS): Observable<MensajeDTO> {
-    return this.http.put<MensajeDTO>(`${this.administradorURL}/cambiar-estado-pqrs/${codigoPQRS}`, { estado: estadoPQRS });
+  public cambiarEstadoPQRS(estadoPQRS: EstadoPQRS): Observable<MensajeDTO> {
+    return this.http.put<MensajeDTO>(`${this.administradorURL}/cambiar-estado-pqrs/`, estadoPQRS);
   }
 
   public verHistorialDeConsultas(): Observable<HistorialConsultas[]> {

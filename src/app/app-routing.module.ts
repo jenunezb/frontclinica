@@ -13,8 +13,10 @@ import { CrearMedicoComponentComponent } from './pagina/administrador/crear-medi
 import { GestionMedicoComponentComponent } from './pagina/administrador/gestion-medico-component/gestion-medico-component.component';
 import { GestionPacienteComponentComponent } from './pagina/paciente/gestion-paciente-component/gestion-paciente-component.component';
 import { EditarMedicoComponent } from './pagina/administrador/editar-medico/editar-medico.component';
-import { GestionCitasComponent } from './pagina/paciente/gestion-citas/gestion-citas.component';
 import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.component';
+import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.component';
+import { GestionHistorialComponent } from './pagina/gestion-historial/gestion-historial.component';
+import { HistoriaClinicaComponent } from './pagina/historia-clinica/historia-clinica.component';
 
 const routes: Routes = [
 { path: "", component: InicioComponent },
@@ -33,8 +35,11 @@ const routes: Routes = [
 { path: "gestion-medico", component: GestionMedicoComponentComponent, canActivate: [RolesGuard], data: { expectedRole: ["admin"] } },
 { path: "editar-medico/:codigo", component: EditarMedicoComponent, canActivate: [RolesGuard], data: { expectedRole: ["admin"] } },
 { path: "gestion-paciente", component: GestionPacienteComponentComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
-{ path: "gestion-citas", component: GestionCitasComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
 { path: "crear-cita", component: CrearCitaComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
+{ path: "lista-citas", component: ListarCitasComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente", "admin"]  } },
+{ path: "gestion-historial", component: GestionHistorialComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente", "medico"]  } },
+{ path: "historia-clinica", component: HistoriaClinicaComponent, canActivate:[RolesGuard], data: {expectedRole: ["paciente", "medico"]  }},
+
 { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 @NgModule({

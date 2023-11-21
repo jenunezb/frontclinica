@@ -42,7 +42,7 @@ export class CrearCitaComponent {
         
         alert(JSON.stringify(data.respuesta));
     setTimeout(() => {
-      this.router.navigate(['/gestion-citas']); // Redirige a la página principal
+      this.router.navigate(['/lista-citas']); // Redirige a la página principal
     }, 5);
       },
       error: error => {

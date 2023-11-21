@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header ps-5 pt-4 pb-4">
+      <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Listado de Citas</h5>
+    </div>
+    <div class="card-body p-5">
+      <div class="mb-3">
+        <button *ngIf="esAdmin === false" type="button" routerLink="/crear-cita" class="btn btn-success me-2">
+            <i class="fa-solid fa-plus me-1"></i> Crear
+          </button>
+      </div>
+      
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>codigo Cita</th>
+            <th *ngIf="esAdmin === true">Cédula del paciente</th>
+            <th *ngIf="esAdmin === true">Nombre del paciente</th>
+            <th>Nombre del médico</th>
+            <th>Especialidad</th>
+            <th>Estado de la cita</th>
+            <th>fecha</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let cita of listaCitas">
+            <td>{{ cita.codigoCita }}</td>
+            <td *ngIf="esAdmin === true">{{ cita.cedulaPaciente }}</td>
+            <td *ngIf="esAdmin === true">{{ cita.nombrePaciente }}</td>
+            <td>{{ cita.medico }}</td>
+            <td>{{ cita.especialidadMedico }}</td>
+            <td>{{ cita.estadoCita }}</td>
+            <td><p>{{ cita.fechaCita| date: 'yyyy-MM-dd HH:mm:ss' }}</p></td>
+          </tr>
+          <!-- Puedes usar *ngIf para mostrar un mensaje cuando la lista está vacía -->
+          <tr *ngIf="listaCitas.length === 0">
+            <td colspan="6" class="text-center">No hay citas disponibles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

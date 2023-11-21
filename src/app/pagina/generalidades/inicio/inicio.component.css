@@ -1,0 +1,16 @@
+.banner {
+    background-color: #3498db; /* Cambia el color de fondo según tu preferencia */
+    color: #fff; /* Cambia el color del texto según tu preferencia */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .banner h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .banner p {
+    font-size: 1.2em;
+  }
+  

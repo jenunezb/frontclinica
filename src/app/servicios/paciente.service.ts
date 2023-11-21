@@ -42,7 +42,15 @@ export class UsuarioService {
     }
 
   public crearPQRS(registroPQRSDTO: RegistroPQRSDTO): Observable<MensajeDTO> {
-    return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs`, registroPQRSDTO);
+    console.log(registroPQRSDTO);
+    return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs/`, registroPQRSDTO);
     }
+
+  public listarCitas(codigo: number): Observable<ItemCitaPacienteDTO[]>{
+      return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/listar-citas/${codigo}`);
+  }
+  public historialMedico(codigo: number): Observable<ItemCitaPacienteDTO[]>{
+    return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/historial/${codigo}`);
+}
   
   }
