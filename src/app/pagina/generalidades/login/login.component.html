@@ -10,7 +10,9 @@
             <form #r="ngForm" (ngSubmit)="login()">
                 <input type="text" name="email" placeholder="Correo Electrónico" [(ngModel)]="sesionDTO.email">
                 <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="sesionDTO.password">
-                <p class="forgot-password"><a href="#" >¿Olvidaste tu contraseña?</a></p>
+                <p class="forgot-password">
+                  <a (click)="olvidePassword()" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                </p>
                 <input type="submit" value="Iniciar Sesión" class="login-button">
                 <app-alerta [alerta]="alerta"></app-alerta>
             </form>
