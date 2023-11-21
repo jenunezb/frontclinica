@@ -6,6 +6,7 @@ import { RegistroPQRSDTO } from '../modelo/registro-pqrsdto';
 import { DetallePacienteDTO } from '../modelo/detalle-paciente-dto';
 import { MedicosDisponiblesDTO } from '../modelo/medicos-disponibles-dto';
 import { ItemCitaPacienteDTO } from '../modelo/item-cita-paciente-dto';
+import { CitaDTO } from '../modelo/cita-dto';
 
 @Injectable({
 providedIn: 'root'
@@ -46,8 +47,8 @@ export class UsuarioService {
     return this.http.post<MensajeDTO>(`${this.userUrl}/crear-pqrs/`, registroPQRSDTO);
     }
 
-  public listarCitas(codigo: number): Observable<ItemCitaPacienteDTO[]>{
-      return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/listar-citas/${codigo}`);
+  public listarCitas(codigo: number): Observable<CitaDTO[]>{
+      return this.http.get<CitaDTO[]>(`${this.userUrl}/listar-citas/${codigo}`);
   }
   public historialMedico(codigo: number): Observable<ItemCitaPacienteDTO[]>{
     return this.http.get<ItemCitaPacienteDTO[]>(`${this.userUrl}/historial/${codigo}`);
