@@ -21,8 +21,12 @@
     <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Historial</a></li>
   </ul>
   <ul *ngIf="roles.includes('medico')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-4 ms-3 me-1 text-dark">Historial</a></li>
+    <li><a routerLink="/gestion-historial" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-file-medical"></i> Historiales</a></li>
+    <li><a routerLink="/lista-citas" class="nav-link px-1 text-secondary fs-5 ms-3 me-1 text-dark"><i class="fas fa-calendar-alt"></i> Citas Pendientes</a></li>
+    <li><a routerLink="/gestion-paciente" class="nav-link px-1 text-secondary fs-5 ms-1 me-1 text-dark"><i class="fas fa-calendar-plus"></i> Agendar día libre</a></li>
+    <li><a routerLink="/citas-realizadas" class="nav-link px-1 text-secondary fs-5 ms-1 me-1 text-dark"><i class="fas fa-check-circle"></i> Citas realizadas</a></li>
   </ul>
+  
 
 <div *ngIf="!isLogged; then nologged else logged"></div>
 <ng-template #nologged>
