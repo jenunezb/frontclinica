@@ -26,10 +26,10 @@
             <td>{{ cita.codigoCita }}</td>
             <td *ngIf="esAdmin === true">{{ cita.cedulaPaciente }}</td>
             <td *ngIf="esAdmin === true">{{ cita.nombrePaciente }}</td>
-            <td>{{ cita.medico }}</td>
-            <td>{{ cita.especialidadMedico }}</td>
+            <td>{{ cita.nombreMedico }}</td>
+            <td>{{ cita.especialidad }}</td>
             <td>{{ cita.estadoCita }}</td>
-            <td><p>{{ cita.fechaCita| date: 'yyyy-MM-dd HH:mm:ss' }}</p></td>
+            <td><p>{{ cita.fecha| date: 'yyyy-MM-dd HH:mm:ss' }}</p></td>
           </tr>
           <!-- Puedes usar *ngIf para mostrar un mensaje cuando la lista está vacía -->
           <tr *ngIf="listaCitas.length === 0">

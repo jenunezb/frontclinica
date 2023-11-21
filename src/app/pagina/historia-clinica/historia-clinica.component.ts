@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemCitaAdminDTO } from 'src/app/modelo/item-cita-admin-dto';
+import { MensajeDTO } from 'src/app/modelo/mensaje-dto';
 import { AdministradorService } from 'src/app/servicios/administrador.service';
 import { UsuarioService } from 'src/app/servicios/paciente.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -13,14 +14,17 @@ import { TokenService } from 'src/app/servicios/token.service';
 export class HistoriaClinicaComponent {
   esMedico: boolean = false;
   public listaCitas: ItemCitaAdminDTO[] = [];
+  public mensajeDTO: MensajeDTO;
   cita: number=0;
   constructor(private administardorService: AdministradorService, private router : Router,private tokenService: TokenService,
     private pacienteService: UsuarioService){
       this.cita=0;
+      this.mensajeDTO=new MensajeDTO();
     }
 
     ngOnInit(): void {
       this.listarCitas();
+      this.traerPaciente();
       if(this.tokenService.getRole()[0]=="m"){
         this.esMedico=true;
       }
@@ -42,7 +46,7 @@ public traerPaciente(): void{
 this.pacienteService.obtenerPaciente(this.tokenService.getCodigo()).subscribe(
   (response: any) => {
     console.log('Respuesta del servicio:', response.respuesta);
-    this.listaCitas = response.respuesta;
+    this.mensajeDTO = response.respuesta;
 },
 error => {
   console.error('Error al obtener la lista de citas', error);

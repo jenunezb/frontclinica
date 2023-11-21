@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ItemCitaAdminDTO } from 'src/app/modelo/item-cita-admin-dto';
+import { CitaDTO } from 'src/app/modelo/cita-dto';
 import { AdministradorService } from 'src/app/servicios/administrador.service';
 import { UsuarioService } from 'src/app/servicios/paciente.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./listar-citas.component.css']
 })
 export class ListarCitasComponent {
-  public listaCitas: ItemCitaAdminDTO[] = [];
+  public listaCitas: CitaDTO[] = [];
   esAdmin: boolean = false;
 
   constructor(private administardorService: AdministradorService, private router : Router,private tokenService: TokenService,
