@@ -16,6 +16,7 @@ import { EditarMedicoComponent } from './pagina/administrador/editar-medico/edit
 import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.component';
 import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.component';
 import { GestionHistorialComponent } from './pagina/gestion-historial/gestion-historial.component';
+import { HistoriaClinicaComponent } from './pagina/historia-clinica/historia-clinica.component';
 
 const routes: Routes = [
 { path: "", component: InicioComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
 { path: "crear-cita", component: CrearCitaComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente"] } },
 { path: "lista-citas", component: ListarCitasComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente", "admin"]  } },
 { path: "gestion-historial", component: GestionHistorialComponent, canActivate: [RolesGuard], data: {expectedRole: ["paciente", "medico"]  } },
+{ path: "historia-clinica", component: HistoriaClinicaComponent, canActivate:[RolesGuard], data: {expectedRole: ["paciente", "medico"]  }},
 
 { path: "**", pathMatch: "full", redirectTo: "" }
 ];

@@ -52,7 +52,6 @@ export class GestionHistorialComponent {
 }
 
 verDetalleCita(cita: number){
-console.log("entra");
-
+  this.router.navigate(['/historia-clinica']);
 }
 }

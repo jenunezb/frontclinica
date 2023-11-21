@@ -22,6 +22,7 @@ import { EditarMedicoComponent } from './pagina/administrador/editar-medico/edit
 import { CrearCitaComponent } from './pagina/paciente/crear-cita/crear-cita.component';
 import { ListarCitasComponent } from './pagina/listar-citas/listar-citas.component';
 import { GestionHistorialComponent } from './pagina/gestion-historial/gestion-historial.component';
+import { HistoriaClinicaComponent } from './pagina/historia-clinica/historia-clinica.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { GestionHistorialComponent } from './pagina/gestion-historial/gestion-hi
     EditarMedicoComponent,
     CrearCitaComponent,
     ListarCitasComponent,
-    GestionHistorialComponent
+    GestionHistorialComponent,
+    HistoriaClinicaComponent
 
   ],
   imports: [

@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Detalle Historial Clínico</h1>
+
+  <div class="historial-detalle">
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Código Cita:</span>
+      <span class="detalle-value">{{ cita.codigoCita }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Cédula del Paciente:</span>
+      <span class="detalle-value">{{ cita.cedulaPaciente }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Nombre del Paciente:</span>
+      <span class="detalle-value">{{ cita.nombrePaciente }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Médico:</span>
+      <span class="detalle-value">{{ cita.medico }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Especialidad Médico:</span>
+      <span class="detalle-value">{{ cita.especialidadMedico }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Estado de la Cita:</span>
+      <span class="detalle-value">{{ cita.estadoCita }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Fecha de la Cita:</span>
+      <span class="detalle-value">{{ cita.fechaCita }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Notas:</span>
+      <span class="detalle-value">{{ cita.notas }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Diagnóstico:</span>
+      <span class="detalle-value">{{ cita.diagnostico }}</span>
+    </div>
+    <div *ngFor="let cita of listaCitas" class="detalle-row">
+      <span class="detalle-label">Tratamiento:</span>
+      <span class="detalle-value">{{ cita.tratamiento }}</span>
+    </div>
+  </div>
+</div>
